@@ -1,0 +1,34 @@
+{
+  "name": "pipes-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5711 --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.25.2",
+    "@workos-inc/authkit-nextjs": "^2.9.0",
+    "@workos-inc/node": "^7.77.0",
+    "graphql": "^16.13.1",
+    "ioredis": "^5.10.0",
+    "jose": "^6.0.11",
+    "mcp-handler": "^1.0.7",
+    "next": "15.5.9",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5",
+    "vitest": "^4.0.18"
+  }
+}
