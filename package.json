@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "1.25.2",
+    "@modelcontextprotocol/sdk": "1.26.0",
     "@workos-inc/authkit-nextjs": "^2.9.0",
     "@workos-inc/node": "^7.77.0",
     "graphql": "^16.13.1",
