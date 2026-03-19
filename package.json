@@ -11,6 +11,7 @@
   "engines": {
     "node": ">=20"
   },
+  "packageManager": "pnpm@8.15.8",
   "scripts": {
     "dev": "next dev -p 5711 --turbopack",
     "build": "next build --turbopack",
