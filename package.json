@@ -2,13 +2,25 @@
   "name": "pipes-mcp",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "author": "WorkOS",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/workos/pipes-mcp"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev -p 5711 --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "format:check": "biome check --formatter-enabled=true --linter-enabled=false"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.25.2",
@@ -29,6 +41,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.0.1",
     "typescript": "^5",
     "vitest": "^4.0.18"
   }

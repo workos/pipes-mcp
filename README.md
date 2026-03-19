@@ -157,3 +157,11 @@ pnpm typecheck    # Type check
 pnpm lint         # Lint (Biome)
 pnpm format       # Format (Biome)
 ```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to this project.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
