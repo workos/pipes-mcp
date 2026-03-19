@@ -13,26 +13,27 @@ A starter template for building an MCP server with human-approved, provider-scop
 
 ## The approval flow
 
-```
-AI Assistant                    This Server                    Human
-     │                              │                            │
-     ├─ request_elevated_access ───►│                            │
-     │  (reason, providers)         │                            │
-     │◄──── approval URL + request ID┤                            │
-     │                              │                            │
-     │  "Open this URL"             │                            │
-     │─────────────────────────────────────────────────────────►│
-     │                              │                            │
-     │                              │◄── select providers ───────┤
-     │                              │◄── add notes (optional) ──┤
-     │                              │◄── approve / deny ─────────┤
-     │                              │                            │
-     ├─ check_access_request ─────►│                            │
-     │◄──── approved + providers ──┤                            │
-     │◄──── user instructions ─────┤                            │
-     │                              │                            │
-     ├─ call_integration_api ─────►│                            │
-     │◄──── API response ──────────┤                            │
+```mermaid
+sequenceDiagram
+       participant AI as AI Assistant
+       participant Server as This Server
+       participant Human as Human
+
+       AI->>Server: request_elevated_access<br>(reason, providers)
+       Server-->>AI: approval URL + request ID
+
+       AI->>Human: "Open this URL"
+
+       Human->>Server: select providers
+       Human->>Server: add notes (optional)
+       Human->>Server: approve / deny
+
+       AI->>Server: check_access_request
+       Server-->>AI: approved + providers
+       Server-->>AI: user instructions
+
+       AI->>Server: call_integration_api
+       Server-->>AI: API response
 ```
 
 Broad authority and per-request approval now use the same underlying grant record:
