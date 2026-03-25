@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Install Socket CLI
-        run: npm install -g socket
+        run: pnpm add -g socket
       - name: Run Tier 1 reachability scan
         env:
           SOCKET_SECURITY_API_TOKEN: ${{ secrets.SOCKET_API_KEY }}
