@@ -27,6 +27,13 @@ jobs:
           echo "distinct_id: ${{ github.event.inputs.distinct_id }}"
       - name: Checkout code
         uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
       - name: Install Socket CLI
         run: npm install -g socket
       - name: Run Tier 1 reachability scan
