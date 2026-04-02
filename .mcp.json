@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pipes-mcp-test": {
+      "type": "http",
+      "url": "http://localhost:5711/mcp"
+    }
+  }
+}
