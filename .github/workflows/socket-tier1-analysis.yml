@@ -26,9 +26,11 @@ jobs:
         run: |
           echo "distinct_id: ${{ github.event.inputs.distinct_id }}"
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - uses: pnpm/action-setup@v5
-      - uses: actions/setup-node@v4
+        with:
+          version: 10.33.0
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: pnpm

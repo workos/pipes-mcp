@@ -11,7 +11,7 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "pnpm@8.15.8",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "dev": "next dev -p 5711 --turbopack",
     "build": "next build --turbopack",
@@ -24,26 +24,31 @@
     "format:check": "biome check --formatter-enabled=true --linter-enabled=false"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "1.26.0",
-    "@workos-inc/authkit-nextjs": "^2.17.0",
-    "@workos-inc/node": "^7.77.0",
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@workos-inc/authkit-nextjs": "^3.0.0",
+    "@workos-inc/node": "^8.10.0",
     "graphql": "^16.13.1",
     "ioredis": "^5.10.0",
     "iron-session": "8.0.4",
     "jose": "^6.0.11",
     "mcp-handler": "^1.1.0",
-    "next": "15.5.13",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "zod": "^3.24.1"
+    "next": "16.2.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.9",
+    "@biomejs/biome": "2.4.10",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.1",
     "typescript": "^6",
     "vitest": "^4.1.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "8.0.5"
+    }
   }
 }

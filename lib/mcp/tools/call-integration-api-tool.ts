@@ -161,11 +161,11 @@ export function registerCallIntegrationApiTool(server: any): void {
           .default("POST")
           .describe("HTTP method"),
         body: z
-          .record(z.unknown())
+          .record(z.string(), z.unknown())
           .optional()
           .describe("Request body as JSON object"),
         headers: z
-          .record(z.string())
+          .record(z.string(), z.string())
           .optional()
           .describe(
             "Additional headers (authentication will be added automatically)",
