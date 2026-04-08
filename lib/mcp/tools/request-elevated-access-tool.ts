@@ -57,7 +57,7 @@ const requestElevatedAccessInputSchema = {
     .optional()
     .describe("HTTP method for the API call."),
   body: z
-    .record(z.unknown())
+    .record(z.string(), z.unknown())
     .optional()
     .describe('Request body as JSON object. Only used when kind is "call".'),
   reason: z
