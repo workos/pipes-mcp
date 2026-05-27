@@ -1,7 +1,10 @@
 import { z } from "zod";
 import { getWorkOSClient } from "@/lib/workos-client";
+import { handleGetStatus } from "../bridge-handlers/status";
 import type { McpAuthInfo } from "../with-authkit";
 import { enforceSession, toolError, toolResult } from "./tool-helpers";
+
+const SAFE_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function renderAuthorizationUrlMarkdown(slug: string, url: string): string {
   return `## Authorization URL for ${slug}
@@ -45,6 +48,24 @@ export function registerConnectIntegrationTool(server: any): void {
         if (!authInfo.extra.organizationId) {
           return toolError(
             "Organization context is required to connect an integration. Please sign in with an organization.",
+          );
+        }
+
+        if (!SAFE_SLUG_PATTERN.test(slug)) {
+          return toolError(
+            "Invalid integration slug. Slugs must contain only lowercase alphanumeric characters and hyphens.",
+          );
+        }
+
+        const statusResult = await handleGetStatus(authInfo);
+        if (!statusResult.success || !statusResult.data) {
+          return toolError("Failed to verify available integrations.");
+        }
+
+        const validSlugs = statusResult.data.integrations.map((i) => i.slug);
+        if (!validSlugs.includes(slug)) {
+          return toolError(
+            `Unknown integration "${slug}". Available integrations: ${validSlugs.join(", ") || "none"}`,
           );
         }
 
