@@ -2,7 +2,7 @@ import { z } from "zod";
 import { createApprovalToken } from "@/lib/mcp/approval-token";
 import { createPendingGrant } from "@/lib/mcp/authority-grants";
 import { handleGetStatus } from "@/lib/mcp/bridge-handlers/status";
-import { detectProviderFromUrl } from "@/lib/mcp/providers";
+import { detectProviderFromUrl, getAllProviders } from "@/lib/mcp/providers";
 import {
   clearPendingGrant,
   getAuthorityTtlMs,
@@ -170,7 +170,7 @@ async function handleRequestAuthority(
   );
 }
 
-async function handleBroadAuthority(
+export async function handleBroadAuthority(
   params: {
     authority: "read" | "write";
     providers?: string[];
@@ -184,6 +184,15 @@ async function handleBroadAuthority(
 ) {
   const { session, auth, clientName } = context;
   const { authority, providers, reason } = params;
+  const supportedProviders = getAllProviders().map((provider) => provider.id);
+  const unsupportedProviders = providers?.filter(
+    (provider) => !supportedProviders.includes(provider),
+  );
+  if (unsupportedProviders?.length) {
+    return toolError(
+      `Unsupported provider(s): ${unsupportedProviders.join(", ")}. Supported providers: ${supportedProviders.join(", ")}.`,
+    );
+  }
 
   if (hasPendingGrant(session)) {
     await clearPendingGrant(session.sid, session.organizationId);
