@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   ci:
     name: Node ${{ matrix.node }}
@@ -14,6 +17,14 @@ jobs:
         node: [20, 22, 24]
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Socket Firewall
+        uses: workos/setup-socket-firewall@ca93dd8aa351f54f4729fe3377a9be23c631c25d
+        with:
+          token: ${{ secrets.PUBLIC_SOCKET_FIREWALL_TOKEN }}
+          allow-external-fork-fallback: true
 
       - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320  # v5
 
