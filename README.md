@@ -1,7 +1,9 @@
 > [!IMPORTANT]
-> **Pipes MCP is being sunset**, and this repository will be archived.
+> **Pipes MCP has been archived.**
 >
-> [Pipes](https://workos.com/pipes) is still going strong! WorkOS continues to build on the ideas explored by Pipes MCP through projects like [Atlas](https://workos.com/atlas) and [Airlock](https://workos.com/airlock).
+> WorkOS continues to build on the ideas explored here through products like [Atlas](https://workos.com/atlas) and [Airlock](https://workos.com/airlock).
+>
+> [WorkOS Pipes](https://workos.com/pipes), the integration platform behind this project, is still available and under active development.
 
 # Pipes MCP Template
 
