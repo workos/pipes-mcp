@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **Pipes MCP is being sunset**, and this repository will be archived.
+>
+> [Pipes](https://workos.com/pipes) is still going strong! WorkOS continues to build on the ideas explored by Pipes MCP through projects like [Atlas](https://workos.com/atlas) and [Airlock](https://workos.com/airlock).
+
 # Pipes MCP Template
 
 A starter template for building an MCP server with human-approved, provider-scoped access to third-party APIs using [WorkOS Pipes](https://workos.com/docs/pipes). It shows one way to let AI assistants securely interact with services like Linear, Notion, Snowflake, and more with a human in the loop, without trying to prescribe the full deployment story or how approval requests should be delivered.
