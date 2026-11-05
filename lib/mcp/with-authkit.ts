@@ -111,6 +111,11 @@ export const verifyToken = async (
       console.error("Invalid or missing jti claim in JWT");
       return undefined;
     }
+    // Agent tokens are signed by the same issuer; only user tokens may call tools.
+    if (payload.sub_profile === "ai_agent") {
+      console.error("Agent tokens are not accepted");
+      return undefined;
+    }
 
     // Fetch the full user profile from WorkOS using the subject claim
     // This provides additional user context beyond what's in the JWT
