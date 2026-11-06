@@ -1,4 +1,4 @@
-> [!IMPORTANT]
+> [!WARNING]
 > This repository is no longer maintained. It will receive no further updates or releases, including security fixes.
 
 # Pipes MCP Template
