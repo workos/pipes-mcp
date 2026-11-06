@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repository is no longer maintained. It will receive no further updates or releases, including security fixes.
+
 # Pipes MCP Template
 
 A starter template for building an MCP server with human-approved, provider-scoped access to third-party APIs using [WorkOS Pipes](https://workos.com/docs/pipes). It shows one way to let AI assistants securely interact with services like Linear, Notion, Snowflake, and more with a human in the loop, without trying to prescribe the full deployment story or how approval requests should be delivered.
